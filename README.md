@@ -16,15 +16,15 @@ Library TypeScript/Bun untuk melakukan bridging dengan layanan **Apotek Online (
 
 ## Instalasi
 
-1. Clone repository ini.
-2. Install dependencies:
-   ```bash
-   bun install
-   ```
+Install package dari npm registry:
+
+```bash
+bun add @digitalmedika/bpjs-apotek
+```
 
 ## Konfigurasi
 
-Buat file `.env` pada root folder project (bisa copy dari `.env.example`). Isi dengan kredensial bridging Apotek Online Anda:
+Buat file `.env` pada root project Anda dan isi dengan kredensial bridging Apotek Online:
 
 ```env
 APOTEK_CONS_ID=no_cons_id_anda
@@ -40,7 +40,7 @@ Library ini dirancang agar mudah digunakan tanpa perlu memikirkan proses enkrips
 ### Inisialisasi
 
 ```typescript
-import { ApotekOnline } from "./src/ApotekOnline";
+import { ApotekOnline } from "@digitalmedika/bpjs-apotek";
 
 // Opsi 1: Otomatis load dari .env
 const apotek = new ApotekOnline();
@@ -115,9 +115,10 @@ Library ini mencakup modul-modul berikut sesuai dokumentasi BPJS Apotek Online:
 
 Project ini menggunakan library testing bawaan **Bun**.
 
-Pastikan file `.env` sudah terisi dengan kredensial Development (Dev) yang valid sebelum menjalankan test.
+Pastikan dependencies sudah terpasang dan file `.env` terisi dengan kredensial Development (Dev) yang valid sebelum menjalankan test.
 
 ```bash
+bun install
 bun test
 ```
 
