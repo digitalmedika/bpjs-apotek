@@ -22,6 +22,7 @@ export class ApotekOnline {
             secretKey: config?.secretKey || process.env.APOTEK_SECRET_KEY || "",
             userKey: config?.userKey || process.env.APOTEK_USER_KEY || "",
             baseUrl: config?.baseUrl || process.env.APOTEK_BASE_URL || "https://apijkn-dev.bpjs-kesehatan.go.id/apotek-rest-dev",
+            kdppk: config?.kdppk || process.env.APOTEK_KDPPK || "",
         };
 
         // Basic validation
