@@ -31,6 +31,7 @@ APOTEK_CONS_ID=no_cons_id_anda
 APOTEK_SECRET_KEY=secret_key_anda
 APOTEK_USER_KEY=user_key_anda
 APOTEK_BASE_URL=https://apijkn-dev.bpjs-kesehatan.go.id/apotek-rest-dev
+APOTEK_KDPPK=kode_ppk_anda
 ```
 
 ## Cara Penggunaan
@@ -50,7 +51,8 @@ const apotek = new ApotekOnline({
     consId: "12345",
     secretKey: "secret",
     userKey: "userkey",
-    baseUrl: "https://api.bpjs..."
+    baseUrl: "https://api.bpjs...",
+    kdppk: "0112A017",
 });
 ```
 
@@ -88,22 +90,22 @@ Library ini mencakup modul-modul berikut sesuai dokumentasi BPJS Apotek Online:
 *   `obat(jenis, tanggal, filter)`: Cari referensi obat (Jadi/Racikan).
 
 ### 2. Resep (`apotek.resep`)
-*   `simpan(data)`: Bridging simpan resep.
-*   `hapus(data)`: Hapus resep.
-*   `daftar(data)`: Lihat daftar resep.
+*   `simpan(data: ResepSimpanRequest)`: Bridging simpan resep.
+*   `hapus(data: ResepHapusRequest)`: Hapus resep.
+*   `daftar(data: ResepDaftarRequest)`: Lihat daftar resep.
 
 ### 3. Obat (`apotek.obat`)
-*   `simpanNonRacikan(data)`: Simpan obat non racikan.
-*   `simpanRacikan(data)`: Simpan obat racikan.
-*   `updateStok(data)`: Update stok obat.
+*   `simpanNonRacikan(data: ObatNonRacikanSimpanRequest)`: Simpan obat non racikan.
+*   `simpanRacikan(data: ObatRacikanSimpanRequest)`: Simpan obat racikan.
+*   `updateStok(data: ObatUpdateStokRequest)`: Update stok obat.
 
 ### 4. Pelayanan Obat (`apotek.pelayananObat`)
 *   `daftar(nomorSep)`: Daftar pelayanan obat by SEP.
-*   `hapus(data)`: Hapus pelayanan obat.
+*   `hapus(data: PelayananObatHapusRequest)`: Hapus pelayanan obat.
 *   `riwayat(awal, akhir, noKartu)`: Riwayat obat pasien.
 
 ### 5. SEP (`apotek.sep`)
-*   `cari(nomorSep)`: Cari data SEP.
+*   `cari(nomorSep)`: Cari data SEP, mengembalikan `BpjsResponse<SepData>`.
 
 ### 6. Monitoring (`apotek.monitoring`)
 *   `dataKlaim(bulan, tahun, jenisObat, status)`: Monitoring data klaim.

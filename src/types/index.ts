@@ -11,11 +11,11 @@ export interface BpjsResponse<T = any> {
 export interface DphoItem {
     kodeobat: string;
     namaobat: string;
-    prb: string; // "True" | "False"
-    kronis: string; // "True" | "False"
-    kemo: string; // "True" | "False"
+    prb: string;
+    kronis: string;
+    kemo: string;
     harga: string;
-    restriksi: string; // "Null" or string
+    restriksi: string;
     generik: string;
     aktif: string | null;
     sedia: string;
@@ -31,7 +31,7 @@ export interface FaskesItem {
     kode: string;
     nama: string;
     alamat: string;
-    telp: string; // check actual response if possible, assume string for now
+    telp: string;
 }
 
 export interface SpesialistikItem {
@@ -53,4 +53,118 @@ export interface PrbItem {
     Obat: string;
     DPJP: string;
     AsalFaskes: string;
+}
+
+export interface SepData {
+    noSep: string;
+    faskesasalresep: string;
+    nmfaskesasalresep: string;
+    nokartu: string;
+    namapeserta: string;
+    jnskelamin: string;
+    tgllhr: string;
+    pisat: string;
+    kdjenispeserta: string;
+    nmjenispeserta: string;
+    kodebu: string;
+    namabu: string;
+    tglsep: string;
+    tglplgsep: string;
+    jnspelayanan: string;
+    nmdiag: string;
+    poli: string;
+    flagprb: string;
+    namaprb: string;
+    kodedokter: string;
+    namadokter: string | null;
+}
+
+export interface ResepItem {
+    NORESEP: string;
+    NOAPOTIK: string;
+    NOSEP_KUNJUNGAN: string;
+    NOKARTU: string;
+    NAMA: string;
+    TGLENTRY: string;
+    TGLRESEP: string;
+    TGLPELRSP: string;
+    BYTAGRSP: string;
+    BYVERRSP: string;
+    KDJNSOBAT: string;
+    FASKESASAL: string;
+}
+
+export interface ResepSimpanRequest {
+    nosjp: string;
+    noresep: string;
+    namadokter: string;
+    kodedokter: string;
+    jenisresep: string;
+    poli: string;
+    flagprb: string;
+    noreg: string;
+}
+
+export interface ResepHapusRequest {
+    nosjp: string;
+    refasalsjp: string;
+    noresep: string;
+}
+
+export interface ResepDaftarRequest {
+    KdJnsObat: string;
+    JnsTgl: "TGLPELSJP" | "TGLRSP";
+    TglMulai: string;
+    TglAkhir: string;
+}
+
+export interface ObatNonRacikanItem {
+    kdobat: string;
+    nmobat: string;
+    jumlah: string;
+    signa: string;
+    harga: string;
+    catatan?: string;
+}
+
+export interface ObatRacikanKomponen {
+    kdobat: string;
+    nmobat: string;
+    jumlah: string;
+    signa: string;
+    harga: string;
+}
+
+export interface ObatRacikanItem {
+    namaracikan: string;
+    obat: ObatRacikanKomponen[];
+}
+
+export interface ObatNonRacikanSimpanRequest {
+    nosjp: string;
+    noresep: string;
+    namadokter: string;
+    kodedokter: string;
+    obat: ObatNonRacikanItem[];
+}
+
+export interface ObatRacikanSimpanRequest {
+    nosjp: string;
+    noresep: string;
+    namadokter: string;
+    kodedokter: string;
+    obat: ObatRacikanItem[];
+}
+
+export interface ObatUpdateStokRequest {
+    kdppk: string;
+    listobat: Array<{
+        kdobat: string;
+        stok: string;
+    }>;
+}
+
+export interface PelayananObatHapusRequest {
+    nosjp: string;
+    noresep: string;
 }
