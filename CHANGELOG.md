@@ -1,5 +1,11 @@
 # @digitalmedika/bpjs-apotek
 
+## 1.0.3
+
+### Patch Changes
+
+- cd88713: Add typed request and response shapes for resep, obat, pelayanan obat, and SEP APIs.
+
 ## 1.0.2
 
 ### Patch Changes
