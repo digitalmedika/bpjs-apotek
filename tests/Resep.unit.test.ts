@@ -6,6 +6,7 @@ const config = {
     secretKey: "test-secret-key",
     userKey: "test-user-key",
     baseUrl: "https://example.test",
+    kdppk: "0112A017",
 };
 
 const originalFetch = globalThis.fetch;
@@ -77,7 +78,6 @@ describe("Resep unit tests", () => {
 
     test("daftar should post filter payload to daftarresep endpoint", async () => {
         const payload = {
-            kdppk: "0112A017",
             KdJnsObat: "0",
             JnsTgl: "TGLPELSJP",
             TglMulai: "2019-03-01 08:49:45",
@@ -132,7 +132,7 @@ describe("Resep unit tests", () => {
             "user_key": config.userKey,
             "Content-Type": "application/json",
         });
-        expect(capturedOptions?.body).toBe(JSON.stringify(payload));
+        expect(capturedOptions?.body).toBe(JSON.stringify({ kdppk: config.kdppk, ...payload }));
         expect(result).toEqual({
             metaData: {
                 code: "200",

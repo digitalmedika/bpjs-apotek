@@ -6,6 +6,7 @@ export interface BridgingConfig {
     secretKey: string;
     userKey: string;
     baseUrl: string;
+    kdppk: string;
 }
 
 export class BridgingClient {
@@ -13,12 +14,14 @@ export class BridgingClient {
     protected secretKey: string;
     protected userKey: string;
     protected baseUrl: string;
+    protected kdppk: string;
 
     constructor(config: BridgingConfig) {
         this.consId = config.consId;
         this.secretKey = config.secretKey;
         this.userKey = config.userKey;
         this.baseUrl = config.baseUrl;
+        this.kdppk = config.kdppk;
     }
 
     private generateSignature(timestamp: string): string {

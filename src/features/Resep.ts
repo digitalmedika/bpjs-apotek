@@ -10,6 +10,6 @@ export class Resep extends BridgingClient {
     }
 
     async daftar(data: any) {
-        return this.post("/daftarresep", data);
+        return this.post("/daftarresep", { kdppk: this.kdppk, ...data });
     }
 }
