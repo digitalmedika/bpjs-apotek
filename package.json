@@ -1,6 +1,6 @@
 {
   "name": "@digitalmedika/bpjs-apotek",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Unofficial BPJS Apotek Online Bridging Library",
   "repository": {
     "type": "git",

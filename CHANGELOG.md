@@ -1,5 +1,11 @@
 # @digitalmedika/bpjs-apotek
 
+## 1.0.4
+
+### Patch Changes
+
+- e0d0c8f: Fix resep POST requests by sending JSON payloads as `text/plain` for `simpan` and `daftar`, matching the BPJS Apotek gateway behavior.
+
 ## 1.0.3
 
 ### Patch Changes
