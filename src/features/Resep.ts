@@ -3,7 +3,7 @@ import { BpjsResponse, ResepSimpanRequest, ResepHapusRequest, ResepDaftarRequest
 
 export class Resep extends BridgingClient {
     async simpan(data: ResepSimpanRequest) {
-        return this.post<BpjsResponse<any>>("/sjpresep/v3/insert", data);
+        return this.postText<BpjsResponse<any>>("/sjpresep/v3/insert", data);
     }
 
     async hapus(data: ResepHapusRequest) {
@@ -11,6 +11,6 @@ export class Resep extends BridgingClient {
     }
 
     async daftar(data: ResepDaftarRequest) {
-        return this.post<BpjsResponse<{ resep: ResepItem | ResepItem[] }>>("/daftarresep", { kdppk: this.kdppk, ...data });
+        return this.postText<BpjsResponse<{ resep: ResepItem | ResepItem[] }>>("/daftarresep", { kdppk: this.kdppk, ...data });
     }
 }

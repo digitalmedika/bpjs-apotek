@@ -64,7 +64,7 @@ describe("Resep unit tests", () => {
             "X-timestamp": expect.any(String),
             "X-signature": expect.any(String),
             "user_key": config.userKey,
-            "Content-Type": "application/json",
+            "Content-Type": "text/plain",
         });
         expect(capturedOptions?.body).toBe(JSON.stringify(payload));
         expect(result).toEqual({
@@ -130,7 +130,7 @@ describe("Resep unit tests", () => {
             "X-timestamp": expect.any(String),
             "X-signature": expect.any(String),
             "user_key": config.userKey,
-            "Content-Type": "application/json",
+            "Content-Type": "text/plain",
         });
         expect(capturedOptions?.body).toBe(JSON.stringify({ kdppk: config.kdppk, ...payload }));
         expect(result).toEqual({

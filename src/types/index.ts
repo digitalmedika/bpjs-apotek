@@ -95,14 +95,16 @@ export interface ResepItem {
 }
 
 export interface ResepSimpanRequest {
-    nosjp: string;
-    noresep: string;
-    namadokter: string;
-    kodedokter: string;
-    jenisresep: string;
-    poli: string;
-    flagprb: string;
-    noreg: string;
+    TGLSJP: string;
+    REFASALSJP: string;
+    POLIRSP: string;
+    KDJNSOBAT: string;
+    NORESEP: string;
+    IDUSERSJP: string;
+    TGLRSP: string;
+    TGLPELRSP: string;
+    KdDokter: string;
+    iterasi: string;
 }
 
 export interface ResepHapusRequest {

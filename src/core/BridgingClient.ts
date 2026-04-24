@@ -57,7 +57,14 @@ export class BridgingClient {
         }
     }
 
-    protected async request<T = any>(endpoint: string, method: 'GET' | 'POST' | 'PUT' | 'DELETE' = 'GET', data?: any): Promise<T> {
+    protected async request<T = any>(
+        endpoint: string,
+        method: 'GET' | 'POST' | 'PUT' | 'DELETE' = 'GET',
+        data?: any,
+        requestOptions?: {
+            contentType?: string;
+        },
+    ): Promise<T> {
         const timestamp = Math.floor(Date.now() / 1000).toString();
         const signature = this.generateSignature(timestamp);
 
@@ -66,7 +73,7 @@ export class BridgingClient {
             "X-timestamp": timestamp,
             "X-signature": signature,
             "user_key": this.userKey,
-            "Content-Type": "application/json",
+            "Content-Type": requestOptions?.contentType ?? "application/json",
         };
 
         const url = `${this.baseUrl}${endpoint}`;
@@ -111,6 +118,12 @@ export class BridgingClient {
 
     protected async post<T = any>(endpoint: string, data: any) {
         return this.request<T>(endpoint, 'POST', data);
+    }
+
+    protected async postText<T = any>(endpoint: string, data: any) {
+        return this.request<T>(endpoint, 'POST', data, {
+            contentType: "text/plain",
+        });
     }
 
     protected async put<T = any>(endpoint: string, data: any) {

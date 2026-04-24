@@ -94,6 +94,23 @@ Library ini mencakup modul-modul berikut sesuai dokumentasi BPJS Apotek Online:
 *   `hapus(data: ResepHapusRequest)`: Hapus resep.
 *   `daftar(data: ResepDaftarRequest)`: Lihat daftar resep.
 
+Contoh simpan resep:
+
+```typescript
+const response = await apotek.resep.simpan({
+    TGLSJP: "2021-08-05 18:13:11",
+    REFASALSJP: "1202R0010318V000092",
+    POLIRSP: "IPD",
+    KDJNSOBAT: "2",
+    NORESEP: "12346",
+    IDUSERSJP: "USR-01",
+    TGLRSP: "2021-08-05 00:00:00",
+    TGLPELRSP: "2021-08-05 00:00:00",
+    KdDokter: "0",
+    iterasi: "0",
+});
+```
+
 ### 3. Obat (`apotek.obat`)
 *   `simpanNonRacikan(data: ObatNonRacikanSimpanRequest)`: Simpan obat non racikan.
 *   `simpanRacikan(data: ObatRacikanSimpanRequest)`: Simpan obat racikan.
