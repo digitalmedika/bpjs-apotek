@@ -3,7 +3,7 @@ import { BpjsResponse, ObatNonRacikanSimpanRequest, ObatRacikanSimpanRequest, Ob
 
 export class Obat extends BridgingClient {
     async simpanNonRacikan(data: ObatNonRacikanSimpanRequest) {
-        return this.post<BpjsResponse<any>>("/obatnonracikan/v3/insert", data);
+        return this.postForm<BpjsResponse<any>>("/obatnonracikan/v3/insert", data);
     }
 
     async simpanRacikan(data: ObatRacikanSimpanRequest) {
