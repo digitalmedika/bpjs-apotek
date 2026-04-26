@@ -91,7 +91,7 @@ Library ini mencakup modul-modul berikut sesuai dokumentasi BPJS Apotek Online:
 
 ### 2. Resep (`apotek.resep`)
 *   `simpan(data: ResepSimpanRequest)`: Bridging simpan resep.
-*   `hapus(data: ResepHapusRequest)`: Hapus resep.
+*   `hapus(data: ResepHapusRequest)`: Hapus resep (DELETE, Content-Type: application/x-www-form-urlencoded).
 *   `daftar(data: ResepDaftarRequest)`: Lihat daftar resep.
 
 Contoh simpan resep:
@@ -108,6 +108,16 @@ const response = await apotek.resep.simpan({
     TGLPELRSP: "2021-08-05 00:00:00",
     KdDokter: "0",
     iterasi: "0",
+});
+```
+
+Contoh hapus resep:
+
+```typescript
+const response = await apotek.resep.hapus({
+    nosjp: "1202A00201210000032",
+    refasalsjp: "1202R0010121V000325",
+    noresep: "0SI44",
 });
 ```
 

@@ -1,5 +1,5 @@
 import { BridgingClient } from "../core/BridgingClient";
-import { BpjsResponse, ResepSimpanRequest, ResepHapusRequest, ResepDaftarRequest, ResepItem } from "../types";
+import { BpjsResponse, ResepSimpanRequest, ResepHapusRequest, ResepHapusResponse, ResepDaftarRequest, ResepItem } from "../types";
 
 export class Resep extends BridgingClient {
     async simpan(data: ResepSimpanRequest) {
@@ -7,7 +7,7 @@ export class Resep extends BridgingClient {
     }
 
     async hapus(data: ResepHapusRequest) {
-        return this.delete<BpjsResponse<any>>("/hapusresep", data);
+        return this.delete<BpjsResponse<ResepHapusResponse>>("/hapusresep", data, "application/x-www-form-urlencoded");
     }
 
     async daftar(data: ResepDaftarRequest) {

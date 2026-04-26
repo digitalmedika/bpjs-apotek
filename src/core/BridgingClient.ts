@@ -120,6 +120,12 @@ export class BridgingClient {
         return this.request<T>(endpoint, 'POST', data);
     }
 
+    protected async postForm<T = any>(endpoint: string, data: any) {
+        return this.request<T>(endpoint, 'POST', data, {
+            contentType: "application/x-www-form-urlencoded",
+        });
+    }
+
     protected async postText<T = any>(endpoint: string, data: any) {
         return this.request<T>(endpoint, 'POST', data, {
             contentType: "text/plain",
@@ -130,7 +136,7 @@ export class BridgingClient {
         return this.request<T>(endpoint, 'PUT', data);
     }
 
-    protected async delete<T = any>(endpoint: string, data?: any) {
-        return this.request<T>(endpoint, 'DELETE', data);
+    protected async delete<T = any>(endpoint: string, data?: any, contentType?: string) {
+        return this.request<T>(endpoint, 'DELETE', data, contentType ? { contentType } : undefined);
     }
 }

@@ -113,6 +113,12 @@ export interface ResepHapusRequest {
     noresep: string;
 }
 
+export interface ResepHapusResponse {
+    noSjp: string;
+    noResep: string;
+    refAsalSjp: string;
+}
+
 export interface ResepDaftarRequest {
     KdJnsObat: string;
     JnsTgl: "TGLPELSJP" | "TGLRSP";
@@ -143,11 +149,24 @@ export interface ObatRacikanItem {
 }
 
 export interface ObatNonRacikanSimpanRequest {
-    nosjp: string;
-    noresep: string;
-    namadokter: string;
-    kodedokter: string;
-    obat: ObatNonRacikanItem[];
+    /** Nomor SJP. */
+    NOSJP: string;
+    /** Nomor resep. */
+    NORESEP: string;
+    /** Kode obat. */
+    KDOBT: string;
+    /** Nama obat. */
+    NMOBAT: string;
+    /** Signa obat bagian pertama. */
+    SIGNA1OBT: number;
+    /** Signa obat bagian kedua. */
+    SIGNA2OBT: number;
+    /** Jumlah obat. */
+    JMLOBT: number;
+    /** Jumlah hari obat. */
+    JHO: number;
+    /** Catatan khusus obat. */
+    CatKhsObt: string;
 }
 
 export interface ObatRacikanSimpanRequest {
