@@ -1,5 +1,11 @@
 # @digitalmedika/bpjs-apotek
 
+## 1.0.5
+
+### Patch Changes
+
+- e3fbaa1: Fix obat non racikan insert typing and form content-type handling.
+
 ## 1.0.4
 
 ### Patch Changes
